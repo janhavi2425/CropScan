@@ -126,6 +126,10 @@ function App() {
                 />
               </div>
               <button className="upload-button">Detect Disease</button>
+            
+            <div>
+            <h2 className="flashcards-title">🌿 What are the most common Plant Diseases Detectable by Leaf Symptom?🌿</h2>
+            </div>
               <Flashcards/>
             </div>  
           )} 

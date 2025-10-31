@@ -37,31 +37,33 @@ export default function Flashcards() {
   return (
     <div className="flash-card-container">
       <div className="carousel">
-        {cards.map((card, index) => {
-          let className = "flash-card";
-
-          if (index === currentIndex) className += " center";
-          else if (index === (currentIndex + 1) % cards.length) className += " right";
-          else if (index === (currentIndex - 1 + cards.length) % cards.length) className += " left";
-          else className += " hidden";
-
-          return (
-            <div key={index} className={className}>
-              <div className="arrow arrow-left" onClick={prevCard}>
-                &#8592;
-              </div>
-
-              <div className="flash-card-content">
-                <h3 className="flash-card-title">{card.title}</h3>
-                <p className="flash-card-text">{card.text}</p>
-              </div>
-
-              <div className="arrow arrow-right" onClick={nextCard}>
-                &#8594;
-              </div>
+        {cards.map((card, index) => (
+          <div
+            key={index}
+            className={`flash-card ${
+              index === currentIndex
+                ? "center"
+                : index === (currentIndex + 1) % cards.length
+                ? "right"
+                : index === (currentIndex - 1 + cards.length) % cards.length
+                ? "left"
+                : "hidden"
+            }`}
+          >
+            <div className="arrow arrow-left" onClick={prevCard}>
+              &#8592;
             </div>
-          );
-        })}
+
+            <div className="flash-card-content">
+              <h3 className="flash-card-title">{card.title}</h3>
+              <p className="flash-card-text">{card.text}</p>
+            </div>
+
+            <div className="arrow arrow-right" onClick={nextCard}>
+              &#8594;
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

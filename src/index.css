@@ -121,6 +121,19 @@
   cursor: pointer;
 }
 
+.flashcards-title {
+  font-size: 2rem;          /* big text */
+  font-weight: 700;         /* bold */
+  text-align: center;       /* center the text */
+  color: #ffffff;           /* white text for contrast */
+  margin: 2rem auto;        /* spacing above and below */
+  border-radius: 1rem;      /* rounded corners */
+  background: rgba(15, 15, 15, 0.747); /* semi-transparent green */
+  backdrop-filter: blur(10px);        /* frosted glass effect */
+  display: inline-block;    /* so width fits text */
+}
+
+
 .flash-card-container {
   display: flex;
   justify-content: center;
@@ -143,24 +156,35 @@
 .flash-card {
   position: absolute;
   width: 400px;
-  background-color: #034007;
+  min-height: 300px;
+  background: rgb(11, 77, 4); /* semi-transparent blue */
   color: white;
-  border-radius: 0.5rem;
-  padding: 2rem 3rem;
+  border-radius: 1.5rem;
+  padding: 3rem 3rem;
   text-align: center;
   transition: all 0.5s ease;
   opacity: 0;
   transform: scale(0.8) translateX(0);
   filter: blur(4px);
+  backdrop-filter: blur(10px); /* frosted glass effect */
+  -webkit-backdrop-filter: blur(10px);
   z-index: 1;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 /* Center card */
 .flash-card.center {
   opacity: 1;
   transform: scale(1) translateX(0);
-  filter: blur(0);
+  filter: none; /* keep text sharp */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgb(36, 66, 1); /* stronger color for center card */
+  border-radius: 1.5rem;
+  box-shadow: 0 0 25px rgba(72, 255, 133, 0.927), 0 0 60px rgba(72, 255, 133, 0.15);
   z-index: 3;
+  min-height: 350px;
 }
 
 /* Left card */
@@ -184,7 +208,7 @@
   display: none;
 }
 
-/* Arrows on the border */
+/* Arrows */
 .arrow-left {
   left: -20px;
 }
@@ -201,21 +225,20 @@
   color: white;
   cursor: pointer;
   user-select: none;
-  width: 35px;            /* fixed width */
-  height: 35px;           /* fixed height */
+  width: 35px;
+  height: 35px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50%;     /* perfect circle */
-  background-color: transparent; /* no background initially */
+  border-radius: 50%;
+  background-color: transparent;
   transition: all 0.3s ease;
   z-index: 5;
 }
 
 .flash-card .arrow:hover {
-  background-color: rgba(0, 0, 0, 0.4); /* circle appears on hover */
+  background-color: rgba(0, 0, 0, 0.4);
 }
-
 
 /* Card text */
 .flash-card-title {
@@ -227,8 +250,9 @@
 .flash-card-text {
   font-size: 1rem;
   line-height: 1.4;
-  color: #d1fae5;
+  color: #e7fff1;
 }
+
 
 
 .about-section {
